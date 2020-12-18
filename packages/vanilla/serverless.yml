@@ -1,0 +1,23 @@
+service: serverless-stress-vanilla
+
+plugins:
+  - serverless-stack-output
+
+provider:
+  name: aws
+  runtime: nodejs12.x 
+  stage: stress
+  region: us-east-1
+
+functions:
+  vanillaHelloWorld:
+    handler: handler.handler
+    events:
+      - http:
+          path: vanilla
+          method: get
+
+custom:
+  output:
+    handler: output.handler
+    file: .tmp/output.json

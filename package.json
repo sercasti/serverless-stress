@@ -1,0 +1,19 @@
+{
+  "name": "serverless-stress",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "stress": "node scripts/run-case.js $npm_config_case"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "execa": "^5.0.0",
+    "yaml": "^1.10.0"
+  },
+  "devDependencies": {
+    "serverless-stack-output": "^0.2.3"
+  }
+}

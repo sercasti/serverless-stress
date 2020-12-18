@@ -1,0 +1,21 @@
+config:
+  http:
+    pool: 10   
+  phases: # array of phase definitions that Artillery goes through sequentially.     
+    # Ramp up arrival rate from 10 to 50 over 2 minutes
+    - duration: 120 # how long virtual users will be generated for.
+      arrivalRate: 5 # Create 10 virtual users every second
+      rampTo: 50
+      name: "Warm up the application"
+    - duration: 120
+      arrivalRate: 50
+      rampTo: 90
+      name: "Ramp up load"
+    # followed by 10 minutes at 90 arrivals per second.
+    - duration: 600
+      arrivalRate: 130
+      name: "Sustained max load"  
+  plugins: 
+    metrics-by-endpoint: {}
+    cloudwatch:
+      namespace: "ServerlessStress"

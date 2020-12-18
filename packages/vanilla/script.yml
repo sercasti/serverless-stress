@@ -1,0 +1,7 @@
+# config:   
+#   target: 'https://kx545uvmnf.execute-api.us-east-1.amazonaws.com/test'
+
+scenarios:
+  - flow:
+    - get:
+        url: "/vanilla" #Hello World plain node
