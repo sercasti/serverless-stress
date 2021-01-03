@@ -3,8 +3,6 @@ This projects aims to provide performance metrics of a series of baseline server
 
 # How to run a case
 ``` shell
-npm install -g serverless@1.83.0 # artillery doesn't support serverless 2.x
-npm install -g serverless-artillery 
 npm install
 npm run stress --case=vanilla
 ```

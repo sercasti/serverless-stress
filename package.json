@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "stress": "node scripts/run-case.js $npm_config_case"
+    "stress": "node scripts/run-case.js $npm_config_case",
+    "postinstall": "lerna bootstrap"
   },
   "author": "",
   "license": "ISC",
@@ -14,6 +15,8 @@
     "yaml": "^1.10.0"
   },
   "devDependencies": {
-    "serverless-stack-output": "^0.2.3"
+    "lerna": "^3.22.1",
+    "serverless": "^1.83.0",
+    "serverless-artillery": "^0.4.8"
   }
 }

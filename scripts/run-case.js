@@ -11,7 +11,7 @@ async function run(caseToRun) {
 
 async function deployTester() {
     console.log("*** Deploying tester function ***");
-    await execa.command('slsart deploy', {
+    await execa.command('npm run deploy', {
         cwd: path.resolve(`${process.cwd()}/packages/tester`),
         stdout: process.stdout
     });
@@ -20,7 +20,7 @@ async function deployTester() {
 
 async function deployCase(caseToRun) {
     console.log("*** Deploying test case: " + caseToRun + " ***");
-    await execa.command('serverless deploy', {
+    await execa.command('npm run deploy', {
         cwd: path.resolve(`${process.cwd()}/packages/${caseToRun}`),
         stdout: process.stdout
     });
@@ -36,7 +36,7 @@ async function runCase(caseToRun) {
     script.config.target = stackOutput.ServiceEndpoint;
     const scriptFileLocation = path.resolve(`${process.cwd()}/packages/${caseToRun}/.tmp/script.yml`);
     fs.writeFileSync(scriptFileLocation, YAML.stringify(script));
-    await execa.command(`slsart invoke -p ${scriptFileLocation}`, {
+    await execa.command(`./node_modules/serverless-artillery/bin/serverless-artillery invoke -p ${scriptFileLocation}`, {
         cwd: path.resolve(`${process.cwd()}/packages/tester`),
         stdout: process.stdout
     });
