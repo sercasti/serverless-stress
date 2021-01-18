@@ -67,3 +67,6 @@ lib/
 
 # serverless
 .serverless
+
+
+.DS_Store
